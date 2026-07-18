@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="guessnumber.css">
+<body>
+<h1>Guess the Number</h1>
+<div class = "container">
+<p>guess a number (1 - 10)</p>
+<input type="text" id="num" placeholder = "Enter a number (1–10)">
+<input type="button" value="check" onclick="guess()">
+
+
+<div id="res"></div>
+
+<hr>
+<div id="res1"></div>
+<div id="res2"></div>
+
+</div>
+<script>
+let random=Math.floor(Math.random() * 10) + 1;
+let attempts=0;
+function guess()
+{
+ 
+   let text=Number(document.getElementById("num").value); 
+   attempts = attempts + 1;
+    if(document.getElementById("num").value == "")
+{
+    return;
+}
+    if(text < random)
+    {
+	
+	document.getElementById("res").innerHTML="too low";
+        document.getElementById("res").style.color ="#B9915E";
+    }
+    else if(text > random)
+    {
+	document.getElementById("res").innerHTML="too high";
+	document.getElementById("res").style.color ="#810100";
+    }
+    else if(text == random)
+   {
+	   
+	document.getElementById("res").innerHTML="🎉 Correct! You Won!";
+        document.getElementById("res").style.color ="#0D3A35";
+    }
+    else 
+    {
+   	document.getElementById("res").innerHTML="not a number";
+    }
+    document.getElementById("res1").innerHTML="<hr>";
+    document.getElementById("res2").innerHTML = "🎯 Attempts : " + attempts;
+    document.getElementById("num").value="";
+    console.log(random);
+}
+
+</script>
+
+</body>
+</html>
